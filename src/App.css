@@ -111,3 +111,7 @@ progress {
 .read-button:hover {
   background: #1d4ed8;
 }
+.read-button:focus {
+  outline: 4px solid orange;
+  outline-offset: 5px;
+}
