@@ -1,19 +1,76 @@
-# React + Vite
+# Reading Goal Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A lightweight reading-goal application built with React, TypeScript, and Vite. Track pages read, monitor progress toward a target, and keep your current page count saved between visits.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Set and view a reading target
+- Track progress toward the goal
+- Increase the page count in 10-page increments
+- Persist reading progress in browser local storage
+- Automatically detect when the goal is completed
+- Component tests with Vitest and Testing Library
 
-## React Compiler
+## Tech stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 19
+- TypeScript
+- Vite
+- Vitest, jsdom, and React Testing Library
+- Oxlint
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Getting started
 
-## Expanding the Oxlint configuration
+### Requirements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Node.js (a current LTS release is recommended)
+- npm
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL printed by Vite in your terminal.
+
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run Oxlint |
+| `npm test` | Run tests with Vitest |
+
+## Project structure
+
+```text
+public/       Static public assets
+src/          Application source code, components, hooks, and tests
+index.html    Vite application entry HTML
+package.json  Project metadata, dependencies, and scripts
+vite.config.* Vite and test configuration
+```
+
+## Reading progress storage
+
+The application stores the current page count in the browser's local storage under the `currentPage` key. Progress is therefore specific to the browser and device being used.
+
+## Development
+
+1. Create a feature branch for your work.
+2. Make and test your changes.
+3. Run `npm run lint`, `npm test`, and `npm run build`.
+4. Open a pull request with a clear description of the change.
+
+## License
+
+No license has been specified yet. Add a license before distributing or reusing this project publicly.
