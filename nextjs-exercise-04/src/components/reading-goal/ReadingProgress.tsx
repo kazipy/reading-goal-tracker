@@ -7,24 +7,33 @@ type ReadingProgressProps = {
 
 export function ReadingProgress({ currentPage, goal }: ReadingProgressProps) {
   const percentage = goal > 0 ? Math.min((currentPage / goal) * 100, 100) : 0;
+  const pagesLeft = Math.max(goal - currentPage, 0);
 
   return (
-    <div className="mt-5">
-      <div className="mb-2 flex justify-between text-sm font-semibold">
-        <span>Progress</span>
-        <span>{Math.round(percentage)}%</span>
+    <div className="progress-content">
+      <div className="progress-heading">
+        <p className="eyebrow">02 / PROGRESS</p>
+        <span className="progress-percent">{Math.round(percentage)}%</span>
+      </div>
+      <div className="page-count">
+        <strong>{Math.min(currentPage, goal)}</strong>
+        <span className="count-divider">/</span>
+        <span>{goal} pages</span>
       </div>
       <div
-        className="h-3 overflow-hidden rounded-full bg-slate-200"
+        className="progress-track"
         role="progressbar"
         aria-label="Reading progress"
         aria-valuemin={0}
         aria-valuemax={goal}
         aria-valuenow={Math.min(currentPage, goal)}
       >
-        <div className="h-full rounded-full bg-blue-600" style={{ width: `${percentage}%` }} />
+        <div className="progress-fill" style={{ width: `${percentage}%` }} />
       </div>
-      <p className="mt-2 text-sm text-slate-600">{currentPage} / {goal} pages</p>
+      <div className="progress-meta">
+        <span>PAGES READ</span>
+        <span>{pagesLeft} TO GO</span>
+      </div>
     </div>
   );
 }
