@@ -5,33 +5,25 @@ import useReadingProgress from "./useReadingProgress";
 function App() {
   const [currentPage, setCurrentPage] = useReadingProgress();
   const [showReadingGoal, setShowReadingGoal] = useState(true);
-
-  const handleReadPages = () => {
-    setCurrentPage((previousPage) => previousPage + 10);
-  };
-
-  const handleDismiss = () => {
-    setShowReadingGoal(false);
-  };
-
-  const handleComplete = () => {
-    console.log("Reading goal completed!");
-  };
+  const handleReadPages = () => setCurrentPage((page) => page + 10);
+  const handleComplete = () => console.log("Reading goal completed!");
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10">
-      {showReadingGoal && (
-        <ReadingGoal
-          title="React basics"
-          goal={50}
-          currentPage={currentPage}
-          onReadPages={handleReadPages}
-          onDismiss={handleDismiss}
-          onComplete={handleComplete}
-        />
+    <main className="app-shell">
+      {showReadingGoal ? (
+        <ReadingGoal title="React basics" goal={50} currentPage={currentPage}
+          onReadPages={handleReadPages} onDismiss={() => setShowReadingGoal(false)}
+          onComplete={handleComplete} />
+      ) : (
+        <section className="dismissed-state">
+          <p className="eyebrow">READING / 2026</p>
+          <h1>Your reading space is clear.</h1>
+          <button className="text-button" onClick={() => setShowReadingGoal(true)}>
+            Restore reading goal ↗
+          </button>
+        </section>
       )}
     </main>
   );
 }
-
 export default App;
