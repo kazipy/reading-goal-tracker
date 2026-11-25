@@ -33,3 +33,33 @@ button { font: inherit; }
 .toggle-button:hover { background: #1d4ed8; }
 .toggle-button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 3px; }
 .mode-note { margin-top: 12px; color: #475569; }
+
+
+/* Dark theme: ColorModeToggle updates data-theme on the root html element. */
+html[data-theme="dark"] body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+html[data-theme="dark"] .demo-card {
+  background: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+html[data-theme="dark"] .site-header {
+  border-bottom-color: #334155;
+}
+html[data-theme="dark"] .intro,
+html[data-theme="dark"] .mode-note {
+  color: #cbd5e1;
+}
+html[data-theme="dark"] .total-pill {
+  background: #1e3a8a;
+  color: #dbeafe;
+}
+html[data-theme="dark"] .toggle-button {
+  background: #475569;
+  color: #f8fafc;
+}
+html[data-theme="dark"] .toggle-button:hover {
+  background: #64748b;
+}
