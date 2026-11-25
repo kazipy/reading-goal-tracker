@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import ReadingGoal from "./ReadingGoal";
 import useReadingProgress from "./useReadingProgress";
 
@@ -20,7 +19,7 @@ function App() {
   };
 
   return (
-    <div>
+    <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10">
       {showReadingGoal && (
         <ReadingGoal
           title="React basics"
@@ -31,7 +30,7 @@ function App() {
           onComplete={handleComplete}
         />
       )}
-    </div>
+    </main>
   );
 }
 
