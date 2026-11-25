@@ -7,15 +7,18 @@ type ReadingGoalHeaderProps = {
 
 export function ReadingGoalHeader({ title, onDismiss }: ReadingGoalHeaderProps) {
   return (
-    <div className="flex items-start justify-between gap-4">
-      <h2 className="text-xl font-bold">{title}</h2>
+    <div className="goal-header">
+      <h2 id="reading-goal-title" className="eyebrow">{title}</h2>
       <button
         type="button"
         onClick={onDismiss}
         aria-label="Dismiss reading goal"
-        className="rounded-full bg-slate-100 px-3 py-1 text-slate-700 hover:bg-slate-200"
+        title="Dismiss reading goal"
+        className="close-button"
       >
-        <span aria-hidden="true">×</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
       </button>
     </div>
   );
