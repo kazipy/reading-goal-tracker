@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 type ColorModeToggleProps = {
   children: ReactNode;
@@ -8,6 +8,11 @@ type ColorModeToggleProps = {
 
 export function ColorModeToggle({ children }: ColorModeToggleProps) {
   const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    // Apply the selected theme to the whole document, not only this button.
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+  }, [dark]);
 
   return (
     <div>
@@ -18,10 +23,10 @@ export function ColorModeToggle({ children }: ColorModeToggleProps) {
         onClick={() => setDark((current) => !current)}
       >
         {children}
-        {dark ? "Dark mode on" : "Light mode on"}
+        {dark ? "Switch to light mode" : "Switch to dark mode"}
       </button>
       <p className="mode-note" aria-live="polite">
-        Current example state: {dark ? "dark" : "light"}
+        Current theme: {dark ? "dark" : "light"}
       </p>
     </div>
   );
