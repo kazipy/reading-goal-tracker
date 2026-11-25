@@ -10,14 +10,46 @@ export function ReadingGoalExample() {
   const [visible, setVisible] = useState(true);
   const goal = 50;
 
-  if (!visible) return null;
+  if (!visible) {
+    return (
+      <section className="dismissed-state">
+        <p className="eyebrow">READING / 2026</p>
+        <h2>Your reading space is clear.</h2>
+        <button className="text-button" type="button" onClick={() => setVisible(true)}>
+          Restore reading goal ↗
+        </button>
+      </section>
+    );
+  }
 
   return (
-    <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <ReadingGoalHeader title="Reading Goal" onDismiss={() => setVisible(false)} />
-      <p className="mt-2 text-sm text-slate-600">A decomposed example based on the Reading Goal Tracker.</p>
-      <ReadingProgress currentPage={currentPage} goal={goal} />
-      <ReadingGoalAction onReadPages={() => setCurrentPage((page) => Math.min(page + 10, goal))} />
+    <section className="goal-content" aria-labelledby="reading-goal-title">
+      <ReadingGoalHeader title="Your reading goal" onDismiss={() => setVisible(false)} />
+      <div className="section-rule" />
+      <div className="reading-grid">
+        <div className="reading-copy">
+          <p className="eyebrow">01 / YOUR READING GOAL</p>
+          <h2>Make time<br />for good ideas.</h2>
+          <p className="intro-copy">
+            A little progress every day adds up. Keep track of your reading and work towards your personal target.
+          </p>
+        </div>
+        <div className="progress-panel">
+          <ReadingProgress currentPage={currentPage} goal={goal} />
+        </div>
+      </div>
+      <div className="bottom-rule" />
+      <div className="action-row">
+        <div>
+          <p className="eyebrow">03 / NEXT STEP</p>
+          <p className="action-caption">Ready for another chapter?</p>
+        </div>
+        <ReadingGoalAction onReadPages={() => setCurrentPage((page) => Math.min(page + 10, goal))} />
+      </div>
+      <footer className="page-footer">
+        <span>READING TRACKER</span>
+        <span>ONE PAGE AT A TIME</span>
+      </footer>
     </section>
   );
 }
