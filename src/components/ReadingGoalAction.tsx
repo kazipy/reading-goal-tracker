@@ -1,21 +1,11 @@
 import type { RefObject } from "react";
-
-type ReadingGoalActionProps = {
-  onReadPages: () => void;
-  buttonRef: RefObject<HTMLButtonElement | null>;
-};
-
-function ReadingGoalAction({ onReadPages, buttonRef }: ReadingGoalActionProps) {
+type Props = { onReadPages: () => void; buttonRef: RefObject<HTMLButtonElement | null> };
+function ReadingGoalAction({ onReadPages, buttonRef }: Props) {
   return (
-    <button
-      ref={buttonRef}
-      type="button"
-      className="w-full rounded-lg bg-blue-600 px-5 py-3 text-base font-bold text-white transition-colors hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
-      onClick={onReadPages}
-    >
-      Read 10 pages
-    </button>
+    <div className="action-row">
+      <div><p className="eyebrow">03 / NEXT STEP</p><p className="action-caption">Ready for another chapter?</p></div>
+      <button ref={buttonRef} type="button" className="read-button" onClick={onReadPages}>Read 10 pages <span aria-hidden="true">↗</span></button>
+    </div>
   );
 }
-
 export default ReadingGoalAction;
