@@ -9,17 +9,19 @@ export function Header() {
   console.log("[Server Component] Header total:", total);
 
   return (
-    <header className="site-header">
+    <header className="page-header">
       <div>
-        <h1>My Next.js App</h1>
-        <p className="intro">Exercise 04: Server and Client Components</p>
+        <p className="eyebrow">PERSONAL READING TRACKER</p>
+        <h1>React basics</h1>
       </div>
-      <span className="total-pill" aria-label={`Total topics: ${total}`}>
-        {total} topics
-      </span>
-      <ColorModeToggle>
-        <ColorModeIcon />
-      </ColorModeToggle>
+      <div className="header-tools">
+        <span className="topic-count" aria-label={`Total topics: ${total}`}>
+          {String(total).padStart(2, "0")} TOPICS
+        </span>
+        <ColorModeToggle>
+          <ColorModeIcon />
+        </ColorModeToggle>
+      </div>
     </header>
   );
 }
