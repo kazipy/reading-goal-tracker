@@ -113,8 +113,8 @@ button:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 
 html[data-theme="dark"] { color-scheme: dark; color: #f2f2f2; background: #111; }
 html[data-theme="dark"] body, html[data-theme="dark"] .app-shell { background: #111; color: #f2f2f2; }
-html[data-theme="dark"] .page-header, html[data-theme="dark"] .section-rule,
-html[data-theme="dark"] .bottom-rule { border-color: #444; background-color: #444; }
+html[data-theme="dark"] .page-header { border-bottom-color: #444; }
+html[data-theme="dark"] .section-rule, html[data-theme="dark"] .bottom-rule { background: #444; }
 html[data-theme="dark"] .page-header h1, html[data-theme="dark"] .reading-copy h2,
 html[data-theme="dark"] .page-count strong, html[data-theme="dark"] .read-button:hover,
 html[data-theme="dark"] .text-button { color: #f2f2f2; }
